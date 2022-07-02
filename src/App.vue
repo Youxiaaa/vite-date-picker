@@ -87,18 +87,18 @@ const isShow = ref(true)
         <div class="w-80 p-4 shadow-md rounded-xl bg-[#003b64] text-white">
           <div class="flex items-center justify-between gap-4 p-4">
 
-            <p @click="month === 0 ? changeMonth(false) : month --, changeMonthAnimation()" class="cursor-pointer font-bold">&lt;</p>
+            <p @click="month === 0 ? changeMonth(false) : month --, changeMonthAnimation()" class="cursor-pointer font-bold py-4 pr-4">&lt;</p>
 
             <div class="flex gap-4">
               <p class="font-bold">{{ year }}</p>
               <p class="font-bold">{{ month + 1 }}月</p>
             </div>
 
-            <p @click="month === 11 ? changeMonth(true) : month ++, changeMonthAnimation()" class="cursor-pointer font-bold">&gt;</p>
+            <p @click="month === 11 ? changeMonth(true) : month ++, changeMonthAnimation()" class="cursor-pointer font-bold py-4 pl-4">&gt;</p>
 
           </div>
 
-          <div v-pre class="grid grid-cols-7 text-center mt-4 font-bold">
+          <div v-pre class="grid grid-cols-7 text-center font-bold">
             <div class="col-span-1">一</div>
             <div class="col-span-1">二</div>
             <div class="col-span-1">三</div>
