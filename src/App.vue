@@ -37,24 +37,24 @@ const pushDays = computed(() => {
 })
 
 // 預設當天日期
-let datePicker = ref(Date.parse(`${year.value}, ${month.value}, ${date.value}`))
+const datePicker = ref(new Date(`${year.value}`, `${month.value}`, `${date.value}`).getTime())
 
 // 選擇日期
 const selectDate = (date) => {
   // 日期轉時間戳
-  datePicker.value = Date.parse(`${year.value}, ${month.value}, ${date}`)
+  datePicker.value = new Date(`${year.value}`, `${month.value}`, `${date}`).getTime()
 }
 
 // 判斷選擇到的日期
 const filterDate = (item) => {
-  if (Date.parse(`${year.value}, ${month.value}, ${item}`) === datePicker.value) return true
+  if (new Date(`${year.value}`, `${month.value}`, `${item}`).getTime() === datePicker.value) return true
   return false
 }
 
 // 判斷是否為已過日期
 const filterOldDate = (item) => {
   const newDate = new Date()
-  if (new Date(`${year.value}/${month.value}/${item}`) < new Date(`${newDate.getFullYear()}/${newDate.getMonth()}/${newDate.getDate()}`)) return true
+  if (new Date(`${year.value}`, `${month.value}`, `${item}`).getTime() < new Date(`${newDate.getFullYear()}`, `${newDate.getMonth()}`, `${newDate.getDate()}`)) return true
   return false
 }
 
@@ -78,6 +78,7 @@ const changeMonthAnimation = () => {
 }
 
 const isShow = ref(true)
+
 </script>
 
 <template>
