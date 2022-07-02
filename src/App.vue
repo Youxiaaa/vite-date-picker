@@ -111,7 +111,7 @@ const isShow = ref(true)
           <transition name="fade" >
             <div v-if="isShow" class="grid grid-cols-7 text-center mt-4 font-bold">
               <div v-for="day in pushDays" :key="day"></div>
-              <div @click="selectDate(item)" v-for="item in filterDays" :key="item" class="col-span-1 h-10 flex items-center justify-center cursor-pointer rounded-full" :class="{'bg-[#ffb900] text-black': filterDate(item), 'text-[#777] pointer-events-none': filterOldDate(item)}">{{ item }}</div>
+              <div @click="selectDate(item)" v-for="item in filterDays" :key="item" class="col-span-1 h-10 flex items-center justify-center cursor-pointer duration-300 rounded-full z-10 relative after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:duration-300 after:bg-[#ffb900] after:rounded-full after:z-[-1]" :class="{'after:scale-100 text-black': filterDate(item), 'after:scale-0': !filterDate(item), 'text-[#777] pointer-events-none': filterOldDate(item)}">{{ item }}</div>
             </div>
           </transition>
 
