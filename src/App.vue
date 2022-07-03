@@ -37,24 +37,24 @@ const pushDays = computed(() => {
 })
 
 // 預設當天日期
-const datePicker = ref(new Date(`${year.value}`, `${month.value}`, `${date.value}`).getTime())
+const datePicker = ref(new Date(year.value, month.value, date.value).getTime())
 
 // 選擇日期
 const selectDate = (date) => {
   // 日期轉時間戳
-  datePicker.value = new Date(`${year.value}`, `${month.value}`, `${date}`).getTime()
+  datePicker.value = new Date(year.value, month.value, date).getTime()
 }
 
 // 判斷選擇到的日期
 const filterDate = (item) => {
-  if (new Date(`${year.value}`, `${month.value}`, `${item}`).getTime() === datePicker.value) return true
+  if (new Date(year.value, month.value, item).getTime() === datePicker.value) return true
   return false
 }
 
 // 判斷是否為已過日期
 const filterOldDate = (item) => {
   const newDate = new Date()
-  if (new Date(`${year.value}`, `${month.value}`, `${item}`).getTime() < new Date(`${newDate.getFullYear()}`, `${newDate.getMonth()}`, `${newDate.getDate()}`)) return true
+  if (new Date(year.value, month.value, item).getTime() < new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate())) return true
   return false
 }
 
